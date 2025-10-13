@@ -34,7 +34,9 @@ async function calculateRisk() {
 }
 
 //Connect form submission to call function calculateRisk
+console.log("Script loaded, setting up event listener."); // Debugging line to confirm script load
 document.getElementById('riskForm').addEventListener('submit', async function(e) {
     e.preventDefault();
+    console.log("Form submitted, calculating risk..."); // Debugging line to confirm form submission
     await calculateRisk(); // Call the async function
 });
