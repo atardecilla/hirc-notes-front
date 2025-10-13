@@ -3,8 +3,8 @@ const API_URL = "https://hirc-notes-back-gfbwg8aqb6c0f4cs.centralus-01.azurewebs
 //Parses in both client and server side
 async function calculateRisk() {
     const age = parseInt(document.getElementById('age').value);
-    const feet = parseInt(document.getElementById('feet').value);
-    const inches = parseInt(document.getElementById('inches').value) || 0; //defaults to 0 if no value
+    const feet = parseInt(document.getElementById('heightFeet').value);
+    const inches = parseInt(document.getElementById('heightInches').value) || 0; //defaults to 0 if no value
     const weight = parseFloat(document.getElementById('weight').value);
     const systolic = parseInt(document.getElementById('systolic').value);
     const diastolic = parseInt(document.getElementById('diastolic').value);
