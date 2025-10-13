@@ -32,3 +32,9 @@ async function calculateRisk() {
             console.error("Error fetching risk data:", error);
     }
 }
+
+//Connect form submission to call function calculateRisk
+document.getElementById('riskForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    await calculateRisk(); // Call the async function
+});
