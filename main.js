@@ -1,4 +1,4 @@
-const API_URL = "URL HERE";
+const API_URL = "https://hirc-notes-back-gfbwg8aqb6c0f4cs.centralus-01.azurewebsites.net";
 
 //Parses in both client and server side
 async function calculateRisk() {
