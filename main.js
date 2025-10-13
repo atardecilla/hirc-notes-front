@@ -23,7 +23,7 @@ async function calculateRisk() {
 
     //Call API with the query string
     try {
-        const response = await fetch(`${API_URL}?${queryParams.toString()}`);
+        const response = await fetch(`${API_URL}/calculate?${queryParams.toString()}`);
         if (!response.ok) throw new Error(`Server returned ${response.status}`);
         const data = await response.json();
 
