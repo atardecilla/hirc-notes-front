@@ -27,7 +27,10 @@ async function calculateRisk() {
         if (!response.ok) throw new Error(`Server returned ${response.status}`);
         const data = await response.json();
 
+        document.dispatchEvent(new CustomEvent('riskCalculated', {detail: data}))
+
         console.log("Risk data:", data);
+
     } catch (error) {
             console.error("Error fetching risk data:", error);
     }

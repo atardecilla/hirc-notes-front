@@ -42,5 +42,22 @@
     <!-- Results -->
     <div id="result"></div>
 
+    <!-- Inline Script to Show Results -->
+    <script>
+        // Listen for messages from main.js (after calculateRisk runs)
+        document.addEventListener('riskCalculated', function(event) {
+            const data = event.detail;
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `
+                <h2>Results</h2>
+                <p><strong>BMI:</strong> ${data.bmi} (${data.bmiCategory})</p>
+                <p><strong>Blood Pressure:</strong> ${data.bpCategory}</p>
+                <p><strong>Family History Points:</strong> ${data.familyHistoryPoints}</p>
+                <p><strong>Total Risk Score:</strong> ${data.riskScore}</p>
+                <p><strong>Risk Category:</strong> <span class="${data.riskCategory.toLowerCase()}">${data.riskCategory.toUpperCase()}</span></p>
+            `;
+        });
+    </script>
+
 </body>
 </html>
