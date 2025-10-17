@@ -1,5 +1,17 @@
 const API_URL = "https://hirc-notes-back-gfbwg8aqb6c0f4cs.centralus-01.azurewebsites.net";
 
+// Wake-up API call on load
+async function pingAPI() {
+  try {
+    await fetch(`${API_URL}/ping`);
+  } catch (err) {
+    console.warn('Wake-up API call failed:', err);
+  }
+}
+
+// Call the wake-up API when the script loads
+onloadAPI();
+
 //Parses in both client and server side
 async function calculateRisk() {
     const age = parseInt(document.getElementById('age').value);
