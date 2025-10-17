@@ -43,3 +43,19 @@ document.getElementById('riskForm').addEventListener('submit', async function(e)
     console.log("Form submitted, calculating risk..."); // Debugging line to confirm form submission
     await calculateRisk(); // Call the async function
 });
+
+document.addEventListener('riskCalculated', function(event) {
+            const data = event.detail;
+            const resultDiv = document.getElementById('result');
+            resultDiv.className = ''; // reset old color
+            resultDiv.classList.add(data.riskCategory.toLowerCase()); // add new color class
+
+            resultDiv.innerHTML = `
+                <h2>Results</h2>
+                <p><strong>BMI:</strong> ${data.bmi} (${data.bmiCategory})</p>
+                <p><strong>Blood Pressure:</strong> ${data.bpCategory}</p>
+                <p><strong>Family History Points:</strong> ${data.familyHistoryPoints}</p>
+                <p><strong>Total Risk Score:</strong> ${data.riskScore}</p>
+                <p><strong>Risk Category:</strong> <span class="${data.riskCategory.toLowerCase()}">${data.riskCategory.toUpperCase()}</span></p>
+            `;
+        });

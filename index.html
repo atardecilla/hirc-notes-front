@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Health Risk Calculator</title>
 </head>
+<link rel="stylesheet" href="main.css">
 <script src="main.js" defer></script>
 <body>
 
-    <h1>Health Risk Calculator</h1>
+    <h1>&#128016;&#128168;Health Risk Calculator</h1>
 
     <form id="riskForm">
         <!-- Age -->
@@ -26,8 +27,10 @@
 
         <!-- Blood Pressure -->
         <label>Blood Pressure (mmHg):</label>
+        <div class="bp-container">
         <input type="number" id="systolic" placeholder="Systolic" min="50" required>
         <input type="number" id="diastolic" placeholder="Diastolic" min="30" required><br><br>
+        </div><br>
 
         <!-- Family History -->
         <label>Family History:</label><br>
@@ -41,23 +44,6 @@
 
     <!-- Results -->
     <div id="result"></div>
-
-    <!-- Inline Script to Show Results -->
-    <script>
-        // Listen for messages from main.js (after calculateRisk runs)
-        document.addEventListener('riskCalculated', function(event) {
-            const data = event.detail;
-            const resultDiv = document.getElementById('result');
-            resultDiv.innerHTML = `
-                <h2>Results</h2>
-                <p><strong>BMI:</strong> ${data.bmi} (${data.bmiCategory})</p>
-                <p><strong>Blood Pressure:</strong> ${data.bpCategory}</p>
-                <p><strong>Family History Points:</strong> ${data.familyHistoryPoints}</p>
-                <p><strong>Total Risk Score:</strong> ${data.riskScore}</p>
-                <p><strong>Risk Category:</strong> <span class="${data.riskCategory.toLowerCase()}">${data.riskCategory.toUpperCase()}</span></p>
-            `;
-        });
-    </script>
 
 </body>
 </html>
