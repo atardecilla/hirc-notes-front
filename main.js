@@ -59,3 +59,7 @@ document.addEventListener('riskCalculated', function(event) {
                 <p><strong>Risk Category:</strong> <span class="${data.riskCategory.toLowerCase()}">${data.riskCategory.toUpperCase()}</span></p>
             `;
         });
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetch(`${API_URL}/ping`).catch(() => {});
+});
